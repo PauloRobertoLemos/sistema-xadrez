@@ -32,4 +32,6 @@ public abstract class Piece {
         }
         return false;
     }
+
+    public abstract boolean possibleMoves(Position target);
 }
