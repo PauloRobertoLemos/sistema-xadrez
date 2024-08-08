@@ -7,7 +7,7 @@ import chess.pieces.Bishop;
 import chess.pieces.King;
 import chess.pieces.Knight;
 import chess.pieces.Pawn;
-//import chess.pieces.Queen;
+import chess.pieces.Queen;
 import chess.pieces.Rook;
 
 
@@ -205,7 +205,12 @@ public class ChessMatch {
                 return false;
             }
         });
-        //placeNewPiece('d', 1, new Queen(board, Color.WHITE));
+        placeNewPiece('d', 1, new Queen(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
         placeNewPiece('e', 1, new King(board, Color.WHITE));
         placeNewPiece('f', 1, new Bishop(board, Color.WHITE) {
             @Override
@@ -282,7 +287,12 @@ public class ChessMatch {
                 return false;
             }
         });
-        //placeNewPiece('d', 8, new Queen(board, Color.BLACK));
+        placeNewPiece('d', 8, new Queen(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
         placeNewPiece('e', 8, new King(board, Color.BLACK));
         placeNewPiece('f', 8, new Bishop(board, Color.BLACK) {
             @Override
