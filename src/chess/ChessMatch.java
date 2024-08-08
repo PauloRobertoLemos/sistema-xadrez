@@ -3,11 +3,12 @@ package chess;
 import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
+import chess.pieces.Bishop;
 import chess.pieces.King;
 import chess.pieces.Pawn;
 import chess.pieces.Rook;
 
-import javax.xml.stream.events.StartDocument;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -196,13 +197,21 @@ public class ChessMatch {
                 return false;
             }
         });
-        placeNewPiece('e', 1, new King(board, Color.WHITE));
-        placeNewPiece('h', 1, new Rook(board, Color.WHITE) {
+        placeNewPiece('c', 1, new Bishop(board, Color.WHITE) {
             @Override
             public boolean possibleMoves(Position target) {
                 return false;
             }
         });
+        placeNewPiece('e', 1, new King(board, Color.WHITE));
+
+        placeNewPiece('f', 1, new Bishop(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+
         placeNewPiece('a', 2, new Pawn(board, Color.WHITE) {
             @Override
             public boolean possibleMoves(Position target) {
@@ -258,7 +267,23 @@ public class ChessMatch {
                 return false;
             }
         });
+
+        placeNewPiece('c', 8, new Bishop(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+
         placeNewPiece('e', 8, new King(board, Color.BLACK));
+
+        placeNewPiece('f', 8, new Bishop(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+
         placeNewPiece('h', 8, new Rook(board, Color.BLACK) {
             @Override
             public boolean possibleMoves(Position target) {
