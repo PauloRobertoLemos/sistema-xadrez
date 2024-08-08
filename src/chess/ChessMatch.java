@@ -4,6 +4,7 @@ import boardgame.Board;
 import boardgame.Piece;
 import boardgame.Position;
 import chess.pieces.King;
+import chess.pieces.Pawn;
 import chess.pieces.Rook;
 
 import javax.xml.stream.events.StartDocument;
@@ -19,8 +20,8 @@ public class ChessMatch {
     private boolean check;
     private boolean checkMate;
 
-    private List<Piece> piecesOnTheBoard = new ArrayList<>();
-    private List<Piece> capturedPieces = new ArrayList<>();
+    private final List<Piece> piecesOnTheBoard = new ArrayList<>();
+    private final List<Piece> capturedPieces = new ArrayList<>();
 
     public ChessMatch(){
         board = new Board(8, 8);
@@ -73,7 +74,7 @@ public class ChessMatch {
             throw new ChessException("you can't put yourself in check");
         }
 
-        check = (testCheck(opponent(currentPlayer))) ? true : false;
+        check = testCheck(opponent(currentPlayer));
 
         if (testCheckMate(opponent(currentPlayer))){
             checkMate = true;
@@ -189,18 +190,128 @@ public class ChessMatch {
     }
 
     private void initialSetup(){
-        placeNewPiece('c', 1, new Rook(board, Color.WHITE));
-        placeNewPiece('c', 2, new Rook(board, Color.WHITE));
-        placeNewPiece('d', 2, new Rook(board, Color.WHITE));
-        placeNewPiece('e', 2, new Rook(board, Color.WHITE));
-        placeNewPiece('e', 1, new Rook(board, Color.WHITE));
-        placeNewPiece('d', 1, new King(board, Color.WHITE));
+        placeNewPiece('a', 1, new Rook(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('e', 1, new King(board, Color.WHITE));
+        placeNewPiece('h', 1, new Rook(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('a', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('b', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('c', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('d', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('e', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('f', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('g', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('h', 2, new Pawn(board, Color.WHITE) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
 
-        placeNewPiece('c', 7, new Rook(board, Color.BLACK));
-        placeNewPiece('c', 8, new Rook(board, Color.BLACK));
-        placeNewPiece('d', 7, new Rook(board, Color.BLACK));
-        placeNewPiece('e', 7, new Rook(board, Color.BLACK));
-        placeNewPiece('e', 8, new Rook(board, Color.BLACK));
-        placeNewPiece('d', 8, new King(board, Color.BLACK));
+        placeNewPiece('a', 8, new Rook(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('e', 8, new King(board, Color.BLACK));
+        placeNewPiece('h', 8, new Rook(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('a', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('b', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('c', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('d', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('e', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('f', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('g', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
+        placeNewPiece('h', 7, new Pawn(board, Color.BLACK) {
+            @Override
+            public boolean possibleMoves(Position target) {
+                return false;
+            }
+        });
     }
 }
